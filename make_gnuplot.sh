@@ -1,5 +1,7 @@
 #!/bin/sh
 
+FONTFILE=/usr/share/fonts/ipa-gothic/ipag.ttf
+
 for f in "$@"; do
     basename=`basename $f .xml|sed -e 's/_[0-9]_[a-z]*$//'`
     echo $basename
@@ -11,11 +13,11 @@ for f in "$@"; do
     else
         submitplot=""
     fi
-    ./ext-search.rb $f $basename > search
-    echo "set term png size 800,800 font \"/usr/share/fonts/ja/TrueType/tlgothic.ttc\" 16" >> search
-    echo "set xtics font \"/usr/share/fonts/ja/TrueType/tlgothic.ttc,16\"" >> search
-    echo "set x2tics font \"/usr/share/fonts/ja/TrueType/tlgothic.ttc,16\"" >> search
-    echo "set ytics font \"/usr/share/fonts/ja/TrueType/tlgothic.ttc,16\"" >> search
+    ./ext-search.rb --font=$FONTFILE $f $basename > search
+    echo "set term png size 800,800 font \"$FONTFILE\" 16" >> search
+    echo "set xtics font \"$FONTFILE,16\"" >> search
+    echo "set x2tics font \"$FONTFILE,16\"" >> search
+    echo "set ytics font \"$FONTFILE,16\"" >> search
     echo "set size square" >> search
     echo "set xrange [-6:19.5]" >> search
     echo "set yrange [0:1200] reverse" >> search
