@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # $Id$
 
-require "../ext-func.rb"
+require "ext-func.rb"
 
 t = load_file( ARGV[0] )
 t.select{|e, i|

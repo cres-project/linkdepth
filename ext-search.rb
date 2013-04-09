@@ -4,7 +4,7 @@
 
 require "kconv"
 
-require "../ext-func.rb"
+require "ext-func.rb"
 
 file = ARGV[0]
 basename = ARGV[1]

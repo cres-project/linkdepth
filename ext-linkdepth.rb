@@ -4,7 +4,7 @@
 
 $KCODE = "utf-8"
 
-require "../ext-func.rb"
+require "ext-func.rb"
 
 table = load_file( ARGV[0] )
 table.each_with_index do |e, i|
